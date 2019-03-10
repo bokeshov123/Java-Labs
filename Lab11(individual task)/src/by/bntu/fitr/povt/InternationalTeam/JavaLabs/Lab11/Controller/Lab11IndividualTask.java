@@ -17,7 +17,8 @@ import java.util.Arrays;
 public class Lab11IndividualTask {
 
     public static void main(String[] args) {
-       
+    
+    System.out.print("Input the Size of the Vector:\n");
     Scanner scanner = new Scanner(System.in);
     int n = scanner.nextInt();
     
