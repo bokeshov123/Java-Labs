@@ -24,7 +24,12 @@ public class Lab12IndividualTaskB {
         
         int[][] array = new int[n][n];
         ArrayInitializer.rndInit(array, -10, 10);
-        ArrayWorker.FindMax(array);
+        
+        System.out.print("Enter 1 if you want to delete Maximum elements\n");
+        System.out.print("Enter 2 if you want to delete Minimum elements\n");
+        int k = scanner.nextInt();
+        
+        ArrayWorker.Sort(array, k);
         
         Printer.print("\nArray" + Arrays.deepToString(array));
     }
