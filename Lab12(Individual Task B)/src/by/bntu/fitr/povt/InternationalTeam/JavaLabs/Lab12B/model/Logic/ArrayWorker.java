@@ -5,8 +5,25 @@ import by.bntu.fitr.povt.InternationalTeam.JavaLabs.Lab12B.view.Printer;
 import java.util.Arrays;
 
 public class ArrayWorker {
-    public static void FindMax(int[][] array){
     
+    public static void Sort(int[][] array, int k)
+    {
+        if(k == 1)
+        {
+            ArrayWorker.FindMax(array);
+        }
+        else if (k == 2)
+        {
+            ArrayWorker.FindMin(array);
+        }
+        else 
+        {
+            Printer.print("Error, your input is not acurate");
+        }
+    }
+    
+    public static void FindMax(int[][] array){
+   
         int MAX = array[0][0];
 
         for(int i = 0; i < array.length; i++)
@@ -45,6 +62,10 @@ public class ArrayWorker {
         int[][] BooleanMatrix = new int[array.length][array.length];
         int count = 0;
         
+        //Prints the Max/Min value;
+        //Printer.print("Min/Max value is: " + value);
+        
+        //fill the boolean matirix with True values;
         ArrayInitializer.rndInit(BooleanMatrix, 1, 1);
         
         for(int i = 0; i < array.length; i++)
@@ -76,6 +97,8 @@ public class ArrayWorker {
                 count++;
             }
         }
+        
+        //Prints the boolean Matrix
         /*
         for(int i = 0; i < BooleanMatrix.length; i++)
         {   
@@ -87,8 +110,6 @@ public class ArrayWorker {
             
             System.out.print("\n");
         }
-        
-        System.out.print(array.length - count);
         */
         
         int[][] array2 = new int[array.length - count][array.length - count];
