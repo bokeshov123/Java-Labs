@@ -1,25 +1,37 @@
 package by.bntu.fitr.povt.InternationalTeam.JavaLabs.Lab13.model.Logic;
 
-//import by.bntu.fitr.povt.InternationalTeam.JavaLabs.Lab13.view.Printer;
+import by.bntu.fitr.povt.InternationalTeam.JavaLabs.Lab13.model.entity.Matrix;
 import java.util.Arrays;
 
 public class ArrayWorker {
-    public static String SortByCharacteristic(int[][] array)
+    public static String SortByCharacteristic(Matrix matrix)
 	{
-            int[] sumOfElements = new int[array.length];
-            int[][] finalArray = new int[array.length][array.length]; 
-            int INF = -1000000000;
-        
-            for(int i = 0; i < array.length; i++)
+            
+            if(matrix == null || matrix.getCountRows() == 0)
+            {
+                return "[]";
+            }   
+            
+            int result = -1;
+            int MatrixSize = matrix.getCountRows();
+            int[] sumOfElements = new int[MatrixSize];      
+    
+            for(int i = 0; i < MatrixSize; i++)
             {
                 int sum = 0;
-                for(int j = 0; j < array.length; j++)
+                for(int j = 0; j < MatrixSize; j++)
                 {
-                    sum += Math.abs(array[j][i]);
+                  if(matrix == null || matrix.getCountRows() == 0)
+            {
+                return "[]";
+            }      sum += Math.abs(matrix.getElement(j, i));
                 }
 
                 sumOfElements[i] = sum;
             }
+            
+            Matrix finalArray = new Matrix(MatrixSize); 
+            int INF = -1000000000;
             
             for(int i = 0; i < sumOfElements.length; i++)
             {
@@ -34,17 +46,23 @@ public class ArrayWorker {
                         indx = j;
                     }
                 }
-                
-               // System.out.print(indx + " ");
 
                 for(int j = 0; j < sumOfElements.length; j++)
                 {
-                    finalArray[i][j] = array[j][indx];
+                    finalArray.setElement(i, j, matrix.getElement(j, indx));
                 }
 
                 sumOfElements[indx] = INF;
             }		
-
-            return (Arrays.deepToString(finalArray));
+            
+            for(int i = 0; i < MatrixSize; i++) {
+            for (int j = 0; j < MatrixSize; j++) {
+                System.out.print(matrix.getElement(i, j));
+                System.out.print(" ");
+            }
+            System.out.print("\n");
         }
+            
+            return finalArray.toString();
+        }  
 }
