@@ -41,14 +41,6 @@ public class ArrayWorker {
                 sumOfElements[indx] = INF;
             }		
             
-            for(int i = 0; i < MatrixSize; i++) {
-            for (int j = 0; j < MatrixSize; j++) {
-                System.out.print(matrix.getElement(i, j));
-                System.out.print(" ");
-            }
-            System.out.print("\n");
-        }
-            
             return finalArray.toString();
         }  
     
